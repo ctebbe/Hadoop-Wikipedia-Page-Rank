@@ -1,4 +1,4 @@
-package io.tebbe;
+package io.tebbe.xml;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -25,6 +25,7 @@ public class WikipediaXMLDataParser {
 
     public WikipediaXMLDataParser(File file) {
         this.fileToParse = file;
+        parse();
     }
 
     DefaultHandler wikiHandler = new DefaultHandler() {
@@ -60,7 +61,7 @@ public class WikipediaXMLDataParser {
         }
     };
 
-    public void parse() {
+    private void parse() {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
@@ -84,7 +85,6 @@ public class WikipediaXMLDataParser {
 
     public static void main(String[] args) {
         WikipediaXMLDataParser p = new WikipediaXMLDataParser(new File("./example/example_data"));
-        p.parse();
         System.out.println(p.articleTitle);
         System.out.println(p.articleText);
     }
