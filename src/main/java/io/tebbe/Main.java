@@ -6,7 +6,7 @@ import io.tebbe.xml.WikipediaXMLDataParser;
 import java.io.File;
 
 /**
- * Created by ctebbe on 9/25/15.
+ * Created by ctebbe.
  */
 public class Main {
     public static void main(String[] args) {
