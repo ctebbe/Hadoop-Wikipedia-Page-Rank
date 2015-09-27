@@ -20,29 +20,29 @@ package io.tebbe.input;
  * limitations under the License.
  */
 
-import java.io.IOException;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DataOutputBuffer;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.FileSplit;
-import org.apache.hadoop.mapred.InputSplit;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.RecordReader;
 import org.apache.hadoop.mapred.Reporter;
-import org.apache.hadoop.mapred.TextInputFormat;
+import org.apache.hadoop.mapreduce.InputSplit;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+
+import java.io.IOException;
 
 /**
- * Reads records that are delimited by a specifc begin/end tag.
+ * Reads records that are delimited by a specific begin/end tag.
  */
 public class XmlInputFormat extends TextInputFormat {
 
     public static final String START_TAG_KEY = "xmlinput.start";
     public static final String END_TAG_KEY = "xmlinput.end";
 
-    @Override
     public RecordReader<LongWritable,Text> getRecordReader(InputSplit inputSplit,
                                                            JobConf jobConf,
                                                            Reporter reporter) throws IOException {

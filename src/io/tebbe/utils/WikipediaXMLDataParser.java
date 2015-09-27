@@ -1,4 +1,4 @@
-package io.tebbe.xml;
+package io.tebbe.utils;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
