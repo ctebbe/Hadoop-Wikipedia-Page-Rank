@@ -15,6 +15,6 @@ public class XmlParseMapper extends Mapper<LongWritable, Text, Text, Text> {
 
     @Override public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         this.context = context;
-        context.write(new Text(key.toString()), new Text(String.valueOf(value.getLength())));
+        context.write(new Text(key.toString()), new Text(value));
     }
 }
